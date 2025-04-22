@@ -4,6 +4,7 @@ import nltk
 from nltk.stem.snowball import SnowballStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+nltk.download('punkt')
 
 # Flask app
 amazon_recommendation = Flask(__name__)
