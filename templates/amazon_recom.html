@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon Product Search</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>    
+<body>
+    <div class="container">
+        <h1>Search Amazon Products</h1>
+        <form method="post">
+            <input type="text" name="query" placeholder="Enter product name" required>
+            <button type="submit">Search</button>
+        </form>
+
+        {% if results %}
+            <h2>Top Matches:</h2>
+            <ul>
+                {% for item in results %}
+                    <li>
+                        <strong>{{ item.Title }}</strong><br>
+                        {{ item.Description }}<br>
+                        <em>{{ item.Category }}</em>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
