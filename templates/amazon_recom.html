@@ -7,10 +7,15 @@
 <body>
     <div class="container">
         <h1>Search Amazon Products</h1>
-        <form method="post">
-            <input type="text" name="query" placeholder="Enter product name" required>
+        <form action="/" method="POST">
+            <select class="form-select" id="products" name="query" required>
+                <option value="">Select a product</option>
+                {% for product in product_list %}
+                    <option value="{{ product }}">{{ product }}</option>
+                {% endfor %}
+            </select>
             <button type="submit">Search</button>
-        </form>
+        </form>        
 
         {% if results %}
             <h2>Top Matches:</h2>
