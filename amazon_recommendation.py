@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Pre-load NLTK resources
-nltk.download('punkt')
+nltk.data.path.append("./nltk_data")
 
 # Load data
 amazon_data = pd.read_csv('amazon_product.csv')
@@ -17,7 +17,7 @@ stemmer = SnowballStemmer('english')
 
 # Preprocessing function
 def tokenize_stem(text):
-    tokens = nltk.word_tokenize(text.lower())
+    tokens = download_nltk_data.word_tokenize(text.lower())
     stemmed = [stemmer.stem(w) for w in tokens]
     return " ".join(stemmed)
 
