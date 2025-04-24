@@ -7,6 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # Pre-load NLTK resources
 nltk.data.path.append("./nltk_data")
+nltk.download('punkt')
 
 # Load data
 amazon_data = pd.read_csv('amazon_product.csv')
