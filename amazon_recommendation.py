@@ -17,7 +17,7 @@ stemmer = SnowballStemmer('english')
 
 # Preprocessing function
 def tokenize_stem(text):
-    tokens = download_nltk_data.word_tokenize(text.lower())
+    tokens = nltk.word_tokenize(text.lower())
     stemmed = [stemmer.stem(w) for w in tokens]
     return " ".join(stemmed)
 
