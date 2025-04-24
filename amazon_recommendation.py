@@ -1,23 +1,12 @@
 import streamlit as st
-import os
 import pandas as pd
 import nltk
-from nltk.tokenize import PunktSentenceTokenizer
 from nltk.stem.snowball import SnowballStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Pre-load NLTK resources
-nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
-nltk.data.path.append(nltk_data_path)
-
-# Download only if not already there
-if not os.path.exists(os.path.join(nltk_data_path, "tokenizers/punkt")):
-    nltk.download("punkt", download_dir=nltk_data_path)
-
-# Workaround for punkt_tab bug
-from nltk.tokenize import punkt
-punkt.PunktSentenceTokenizer.lang_vars_class = punkt.PunktLanguageVars
+nltk.download('punkt_tab')
 
 # Load data
 amazon_data = pd.read_csv('amazon_product.csv')
